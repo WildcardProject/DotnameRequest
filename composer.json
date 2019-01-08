@@ -1,0 +1,22 @@
+{
+    "name": "programming_cat/dotname-request",
+    "description": "Convert dotnamed request parameters to array",
+    "type": "library",
+    "require": {
+        "php": "^5.6",
+        "laravel/framework": "^5.1"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "T.Yamazaki",
+            "email": "takanori@it-gypsy.jp"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "programming_cat\\DotnameRequest\\": "src"
+        }
+    }
+}
