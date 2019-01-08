@@ -1,9 +1,8 @@
 {
     "name": "programming_cat/dotname-request",
-    "description": "Convert dotnamed request parameters to array",
+    "description": "Convert dotted form parameters to array format / ドット区切りのフォームパラメータを配列形式に変換してRequestに設定します。",
     "type": "library",
     "require": {
-        "php": ">=5.6",
         "laravel/framework": ">=5.1"
     },
     "license": "MIT",
