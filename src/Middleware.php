@@ -31,7 +31,7 @@ class Middleware
         if (!strlen($query)) return $input;
         foreach (explode('&', $query) as $keyvalue) {
             list($key, $value) = explode('=', $keyvalue);
-            array_set($input, $key, urldecode($value));
+            array_set($input, $key, rawurldecode($value));
         }
         return $input;
     }
