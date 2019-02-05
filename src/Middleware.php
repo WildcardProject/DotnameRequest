@@ -32,7 +32,12 @@ class Middleware
         foreach (explode('&', $query) as $keyvalue) {
             list($key, $value) = explode('=', $keyvalue);
             array_set($input, $key, rawurldecode($value));
+            //array_set($input, $this->unify_array_key($key), rawurldecode($value));
         }
         return $input;
+    }
+
+    protected function unify_array_key($key) {
+        return str_replace(']', '', str_replace('[', '.', str_replace('][', '.', $key)));
     }
 }
