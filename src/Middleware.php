@@ -22,7 +22,7 @@ class Middleware
         $posted = file_get_contents('php://input');
         $got = array_get($_SERVER, 'QUERY_STRING');
 
-        if (strpos($request->header('CONTENT_TYPE'), 'application/x-www-form-urlencoded') !== FALSE || in_array(strtoupper($request->server('REQUEST_METHOD', 'GET')), ["GET", "DELETE"])) {
+        if (strpos($request->header('CONTENT_TYPE'), 'application/x-www-form-urlencoded') !== FALSE || in_array(strtoupper($request->server('REQUEST_METHOD', 'GET')), ["GET"])) {
             $inputs = array_merge([], $this->_parse($got), $this->_parse($posted));
             return $request->replace($inputs);
         }
