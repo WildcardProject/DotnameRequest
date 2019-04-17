@@ -27,7 +27,9 @@ class Middleware
         }
         else {
             // multipartの場合はあきらめる
-            report(new \Exception("multipartの場合のパラメータ名変換はサポートしていません。"));
+            if (config('app.debug')===true) {
+                report(new \Exception("multipartの場合のパラメータ名変換はサポートしていません。"));
+            }
             return $request;
         }
     }
@@ -37,9 +39,10 @@ class Middleware
         if (!strlen($query)) return $input;
         foreach (explode('&', $query) as $keyvalue) {
             list($key, $value) = explode('=', $keyvalue);
-            array_set($input, $key, rawurldecode($value));
+            array_set($input, $key, urldecode($value));
             //array_set($input, $this->unify_array_key($key), rawurldecode($value));
         }
+        \Log::debug(['dotnameRequest'=>compact('query', 'input')]);
         return $input;
     }
 
