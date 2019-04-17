@@ -42,7 +42,6 @@ class Middleware
             array_set($input, $key, urldecode($value));
             //array_set($input, $this->unify_array_key($key), rawurldecode($value));
         }
-        \Log::debug(['dotnameRequest'=>compact('query', 'input')]);
         return $input;
     }
 
