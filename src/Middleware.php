@@ -39,13 +39,13 @@ class Middleware
         if (!strlen($query)) return $input;
         foreach (explode('&', $query) as $keyvalue) {
             list($key, $value) = explode('=', $keyvalue);
+            $key = $this->unify_array_key($key);
             array_set($input, $key, urldecode($value));
-            //array_set($input, $this->unify_array_key($key), rawurldecode($value));
         }
         return $input;
     }
 
     protected function unify_array_key($key) {
-        return str_replace(']', '', str_replace('[', '.', str_replace('][', '.', $key)));
+        return str_replace(']', '', str_replace('[', '.', str_replace('][', '.', urldecode($key))));
     }
 }
