@@ -38,6 +38,7 @@ class Middleware
         $input = [];
         if (!strlen($query)) return $input;
         foreach (explode('&', $query) as $keyvalue) {
+            if (empty($keyvalue)) continue;
             list($key, $value) = explode('=', $keyvalue);
             $key = $this->unify_array_key($key);
             array_set($input, $key, urldecode($value));
