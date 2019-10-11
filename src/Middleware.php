@@ -27,7 +27,7 @@ class Middleware
         }
         else {
             // multipartの場合はあきらめる
-            if (config('app.debug')===true) {
+            if (env('DOTNAME_REPORT_ERROR')) {
                 report(new \Exception("multipartの場合のパラメータ名変換はサポートしていません。"));
             }
             return $request;
